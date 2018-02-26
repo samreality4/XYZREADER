@@ -57,6 +57,7 @@ public class ArticleDetailFragment extends Fragment implements
     private int mTopInset;
     private View mPhotoContainerView;
     private ImageView mPhotoView;
+    private ImageView mPhotoViewBig;
     private int mScrollY;
     private boolean mIsCard = false;
     private int mStatusBarFullOpacityBottom;
@@ -75,6 +76,7 @@ public class ArticleDetailFragment extends Fragment implements
     }
 
     public static ArticleDetailFragment newInstance(long itemId) {
+        //getting information from somewhere through a bundle
         Bundle arguments = new Bundle();
         arguments.putLong(ARG_ITEM_ID, itemId);
         ArticleDetailFragment fragment = new ArticleDetailFragment();
@@ -89,7 +91,7 @@ public class ArticleDetailFragment extends Fragment implements
         if (getArguments().containsKey(ARG_ITEM_ID)) {
             mItemId = getArguments().getLong(ARG_ITEM_ID);
         }
-
+        // getting the card id?
         mIsCard = getResources().getBoolean(R.bool.detail_is_card);
         mStatusBarFullOpacityBottom = getResources().getDimensionPixelSize(
                 R.dimen.detail_card_top_margin);
@@ -114,6 +116,7 @@ public class ArticleDetailFragment extends Fragment implements
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState) {
+        //inflating the fragment layouts
         mRootView = inflater.inflate(R.layout.fragment_article_detail, container, false);
         mDrawInsetsFrameLayout = (DrawInsetsFrameLayout)
                 mRootView.findViewById(R.id.draw_insets_frame_layout);
@@ -133,10 +136,12 @@ public class ArticleDetailFragment extends Fragment implements
                 mPhotoContainerView.setTranslationY((int) (mScrollY - mScrollY / PARALLAX_FACTOR));
                 updateStatusBar();
             }
+
         });
 
-        mPhotoView = (ImageView) mRootView.findViewById(R.id.photo);
+        //mPhotoView = (ImageView) mRootView.findViewById(R.id.photo);
         mPhotoContainerView = mRootView.findViewById(R.id.photo_container);
+        mPhotoViewBig =(ImageView) mRootView.findViewById(R.id.photo_big);
 
         mStatusBarColorDrawable = new ColorDrawable(0);
 
@@ -157,7 +162,7 @@ public class ArticleDetailFragment extends Fragment implements
 
     private void updateStatusBar() {
         int color = 0;
-        if (mPhotoView != null && mTopInset != 0 && mScrollY > 0) {
+        if (mPhotoViewBig!= null && mTopInset != 0 && mScrollY > 0) {
             float f = progress(mScrollY,
                     mStatusBarFullOpacityBottom - mTopInset * 3,
                     mStatusBarFullOpacityBottom - mTopInset);
@@ -241,7 +246,8 @@ public class ArticleDetailFragment extends Fragment implements
                             if (bitmap != null) {
                                 Palette p = Palette.generate(bitmap, 12);
                                 mMutedColor = p.getDarkMutedColor(0xFF333333);
-                                mPhotoView.setImageBitmap(imageContainer.getBitmap());
+                                //mPhotoView.setImageBitmap(imageContainer.getBitmap());
+                                mPhotoViewBig.setImageBitmap(imageContainer.getBitmap());
                                 mRootView.findViewById(R.id.meta_bar)
                                         .setBackgroundColor(mMutedColor);
                                 updateStatusBar();
@@ -292,13 +298,17 @@ public class ArticleDetailFragment extends Fragment implements
     }
 
     public int getUpButtonFloor() {
-        if (mPhotoContainerView == null || mPhotoView.getHeight() == 0) {
+        if (mPhotoContainerView == null || mPhotoViewBig.getHeight() == 0) {
             return Integer.MAX_VALUE;
         }
 
         // account for parallax
         return mIsCard
-                ? (int) mPhotoContainerView.getTranslationY() + mPhotoView.getHeight() - mScrollY
-                : mPhotoView.getHeight() - mScrollY;
+                ? (int) mPhotoContainerView.getTranslationY() + mPhotoViewBig.getHeight() - mScrollY
+                : mPhotoViewBig.getHeight() - mScrollY;
     }
 }
+
+//todo blank screen when clicked on detail
+//todo picture not fully fitting the entire screen
+//todo fix the collapsing toolbar
