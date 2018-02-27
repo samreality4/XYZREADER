@@ -1,73 +1,27 @@
 <android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
-    <android.support.design.widget.CoordinatorLayout
-        android:id="@+id/photo_container"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:fitsSystemWindows="true"
-        android:background="@color/primary_material_green">
-
-        <android.support.design.widget.AppBarLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:elevation="4dp">
-
-        <android.support.design.widget.CollapsingToolbarLayout
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/detail_card_top_margin"
-            android:fitsSystemWindows="true"
-            android:minHeight="50dp"
-            app:layout_scrollFlags="scroll|exitUntilCollapsed">
-
-        <ImageView
-            android:id="@+id/photo_big"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/detail_card_top_margin"
-            android:scaleType="centerCrop"
-            android:fitsSystemWindows="true"
-            app:layout_collapseMode="parallax"/>
-
-        <!--suppress AndroidLintContentDescription -->
-
-            <android.support.v7.widget.Toolbar
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <ImageView
-                    android:id="@+id/photo"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    />
-            </android.support.v7.widget.Toolbar>
+    android:layout_height="match_parent"
+    android:id="@+id/photo_container"
+    android:background="@color/primary_material_green">
 
 
-
-        </android.support.design.widget.CollapsingToolbarLayout>
-
-
-            <!-- <View
-                android:layout_width="match_parent"
-                android:layout_height="112dp"
-                android:background="@drawable/photo_background_protection" /> -->
-    </android.support.design.widget.AppBarLayout>
-    </android.support.design.widget.CoordinatorLayout>
 
     <com.example.xyzreader.ui.DrawInsetsFrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/draw_insets_frame_layout">
+        android:id="@+id/draw_insets_frame_layout"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
     <com.example.xyzreader.ui.ObservableScrollView
         android:id="@+id/scrollview"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        >
 
-        <FrameLayout
+        <!--<FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content">-->
 
 
 
@@ -128,10 +82,13 @@
                     android:lineSpacingMultiplier="@fraction/detail_body_line_spacing_multiplier" />
 
             </com.example.xyzreader.ui.MaxWidthLinearLayout>
-        </FrameLayout>
+        <!--</FrameLayout>-->
     </com.example.xyzreader.ui.ObservableScrollView>
 
-    <ImageButton android:id="@+id/share_fab"
+
+
+
+        <ImageButton android:id="@+id/share_fab"
         android:stateListAnimator="@anim/fab_state_list_anim"
         android:background="@drawable/add_fab_background"
         android:layout_gravity="bottom|end"
@@ -144,4 +101,60 @@
         android:contentDescription="@string/action_share" />
 
 </com.example.xyzreader.ui.DrawInsetsFrameLayout>
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:elevation="4dp"
+        android:theme="@style/Theme.AppCompat.Light.DarkActionBar">
+
+        <android.support.design.widget.CollapsingToolbarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fitsSystemWindows="true"
+            android:minHeight="50dp"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed">
+
+            <ImageView
+                android:id="@+id/photo_big"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/detail_card_top_margin"
+                android:scaleType="centerCrop"
+                android:fitsSystemWindows="true"
+                app:layout_collapseMode="parallax"/>
+
+            <!--suppress AndroidLintContentDescription -->
+
+            <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="65dp"
+            android:layout_gravity="bottom"
+            android:layout_marginLeft="@dimen/list_toolbar_side_margin"
+            android:layout_marginRight="@dimen/list_toolbar_side_margin"
+            app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+            <ImageView
+                 android:id="@+id/photo"
+                 android:layout_width="100dp"
+                 android:layout_height="100dp"
+                 />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:contentDescription="@string/app_name"
+                    android:src="@drawable/logo" />
+            </android.support.v7.widget.Toolbar>
+
+
+
+        </android.support.design.widget.CollapsingToolbarLayout>
+
+
+        <!-- <View
+            android:layout_width="match_parent"
+            android:layout_height="112dp"
+            android:background="@drawable/photo_background_protection" /> -->
+    </android.support.design.widget.AppBarLayout>
 </android.support.design.widget.CoordinatorLayout>
