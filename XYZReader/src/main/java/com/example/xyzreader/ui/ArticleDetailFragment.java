@@ -120,7 +120,7 @@ public class ArticleDetailFragment extends Fragment implements
             Bundle savedInstanceState) {
         //inflating the fragment layouts
         mRootView = inflater.inflate(R.layout.fragment_article_detail, container, false);
-        mCoordinatorLayout = (CoordinatorLayout) mRootView.findViewById(R.id.draw_insets_frame_layout);
+        //mCoordinatorLayout = (CoordinatorLayout) mRootView.findViewById(R.id.draw_insets_frame_layout);
        /* mDrawInsetsFrameLayout.setOnInsetsCallback(new DrawInsetsFrameLayout.OnInsetsCallback() {
             @Override
             public void onInsetsChanged(Rect insets) {
