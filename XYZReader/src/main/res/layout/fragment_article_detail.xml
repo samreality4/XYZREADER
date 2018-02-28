@@ -3,13 +3,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/photo_container"
-    android:background="@color/primary_material_green">
+    android:background="@color/primary_material_green"
+    android:fitsSystemWindows="true">
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:elevation="4dp"
-        android:theme="@style/Theme.AppCompat.Light.DarkActionBar">
+        android:theme="@style/Theme.AppCompat.Light.DarkActionBar"
+        android:fitsSystemWindows="true">
 
         <android.support.design.widget.CollapsingToolbarLayout
             android:layout_width="match_parent"
@@ -35,7 +37,6 @@
                 android:layout_gravity="bottom"
                 android:layout_marginLeft="@dimen/list_toolbar_side_margin"
                 android:layout_marginRight="@dimen/list_toolbar_side_margin"
-                app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
                 app:layout_collapseMode="pin">
 
            <!-- <ImageView
@@ -47,40 +48,19 @@
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:paddingTop="25dp"
                     android:paddingStart="120dp"
                     android:contentDescription="@string/app_name"
                     android:src="@drawable/logo" />
             </android.support.v7.widget.Toolbar>
-
-
-
         </android.support.design.widget.CollapsingToolbarLayout>
-
-
-        <!-- <View
-            android:layout_width="match_parent"
-            android:layout_height="112dp"
-            android:background="@drawable/photo_background_protection" /> -->
     </android.support.design.widget.AppBarLayout>
 
-
-
-   <!-- <android.support.design.widget.CoordinatorLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/draw_insets_frame_layout"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior">-->
 
     <android.support.v4.widget.NestedScrollView
         android:id="@+id/scrollview"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
-
-        <!--<FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">-->
-
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
 
             <com.example.xyzreader.ui.MaxWidthLinearLayout
@@ -91,7 +71,7 @@
                 android:maxWidth="@dimen/detail_card_max_width"
                 android:background="#fff"
                 android:elevation="2dp">
-                <!--android:layout_marginTop="@dimen/detail_card_top_margin"-->
+             <!--android:layout_marginTop="@dimen/detail_card_top_margin"-->>
 
                 <LinearLayout
                     android:id="@+id/meta_bar"
@@ -104,7 +84,8 @@
                     android:paddingRight="@dimen/detail_inner_horiz_margin"
                     android:paddingTop="@dimen/detail_metabar_vert_padding"
                     android:paddingBottom="@dimen/detail_metabar_vert_padding"
-                    android:layout_marginBottom="@dimen/detail_metabar_vert_padding">
+                    android:layout_marginBottom="@dimen/detail_metabar_vert_padding"
+                    app:layout_collapseMode="pin">
 
                     <TextView
                         android:id="@+id/article_title"
@@ -140,6 +121,8 @@
                     android:lineSpacingMultiplier="@fraction/detail_body_line_spacing_multiplier" />
 
             </com.example.xyzreader.ui.MaxWidthLinearLayout>
+    </android.support.v4.widget.NestedScrollView>
+
         <!--</FrameLayout>-->
 
         <ImageButton android:id="@+id/share_fab"

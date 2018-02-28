@@ -128,7 +128,7 @@ public class ArticleDetailFragment extends Fragment implements
             }
         });*/
 
-        mScrollView = (NestedScrollView) mRootView.findViewById(R.id.scrollview);
+        mScrollView = mRootView.findViewById(R.id.scrollview);
         /*mScrollView.setCallbacks(new ObservableScrollView.Callbacks() {
             @Override
             public void onScrollChanged() {
@@ -142,7 +142,7 @@ public class ArticleDetailFragment extends Fragment implements
 
         //mPhotoView = (ImageView) mRootView.findViewById(R.id.photo);
         mPhotoContainerView = mRootView.findViewById(R.id.photo_container);
-        mPhotoViewBig =(ImageView) mRootView.findViewById(R.id.photo_big);
+        mPhotoViewBig = mRootView.findViewById(R.id.photo_big);
 
         mStatusBarColorDrawable = new ColorDrawable(0);
 
@@ -283,13 +283,15 @@ public class ArticleDetailFragment extends Fragment implements
         }
 
         mCursor = cursor;
+        //having error on this because the network is slow
         if (mCursor != null && !mCursor.moveToFirst()) {
             Log.e(TAG, "Error reading item detail cursor");
             mCursor.close();
             mCursor = null;
-        }
+        } else {
 
-        bindViews();
+            bindViews();
+        }
     }
 
     @Override
