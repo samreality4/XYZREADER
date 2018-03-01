@@ -20,6 +20,7 @@
             android:minHeight="50dp"
             app:layout_scrollFlags="scroll|exitUntilCollapsed">
 
+
             <ImageView
                 android:id="@+id/photo_big"
                 android:layout_width="match_parent"
@@ -66,7 +67,7 @@
             <com.example.xyzreader.ui.MaxWidthLinearLayout
                 android:orientation="vertical"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_gravity="center_horizontal"
                 android:maxWidth="@dimen/detail_card_max_width"
                 android:background="#fff"

@@ -288,11 +288,11 @@ public class ArticleDetailFragment extends Fragment implements
             Log.e(TAG, "Error reading item detail cursor");
             mCursor.close();
             mCursor = null;
-        } else {
+        }
 
             bindViews();
         }
-    }
+    
 
     @Override
     public void onLoaderReset(Loader<Cursor> cursorLoader) {
