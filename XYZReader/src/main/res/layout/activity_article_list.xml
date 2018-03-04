@@ -28,7 +28,7 @@
         android:layout_width="match_parent"
         android:layout_height="66dp"
         android:background="?colorPrimary"
-        android:elevation="8dp">
+        android:elevation="4dp">
 
 
 
