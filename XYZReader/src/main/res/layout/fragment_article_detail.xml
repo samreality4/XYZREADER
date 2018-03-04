@@ -3,7 +3,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/photo_container"
-    android:background="@color/primary_material_green"
     android:fitsSystemWindows="true">
 
     <android.support.design.widget.AppBarLayout
@@ -17,9 +16,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fitsSystemWindows="true"
-            android:minHeight="50dp"
+            android:minHeight="100dp"
             app:layout_scrollFlags="scroll|exitUntilCollapsed">
-
 
             <ImageView
                 android:id="@+id/photo_big"
@@ -40,12 +38,6 @@
                 android:layout_marginRight="@dimen/list_toolbar_side_margin"
                 app:layout_collapseMode="pin">
 
-           <!-- <ImageView
-                    android:id="@+id/photo"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    />-->
-
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -64,7 +56,7 @@
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
 
-            <LinearLayout
+            <com.example.xyzreader.ui.MaxWidthLinearLayout
                 android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -121,7 +113,7 @@
                     android:textSize="@dimen/detail_body_text_size"
                     android:lineSpacingMultiplier="@fraction/detail_body_line_spacing_multiplier" />
 
-            </LinearLayout>
+            </com.example.xyzreader.ui.MaxWidthLinearLayout>
     </android.support.v4.widget.NestedScrollView>
 
         <!--</FrameLayout>-->

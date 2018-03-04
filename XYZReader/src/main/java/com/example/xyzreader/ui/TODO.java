@@ -6,7 +6,7 @@ package com.example.xyzreader.ui;
 
 public class TODO {
     //todo 01 fix the bar when i slide the viewpager
-    //todo 02 fix the lag
+    //todo 02 fix the lag, some stuff is going on with the dB
     //todo 03 fix the bar size
     //todo 04 do some with the FAB
 }
