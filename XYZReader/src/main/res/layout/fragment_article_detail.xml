@@ -34,7 +34,9 @@
                 android:layout_gravity="bottom"
                 android:layout_marginLeft="@dimen/list_toolbar_side_margin"
                 android:layout_marginRight="@dimen/list_toolbar_side_margin"
-                app:layout_collapseMode="pin">
+                app:layout_collapseMode="pin"
+                android:fitsSystemWindows="true"
+                >
                 <!--pin it to the top-->
 
                 <ImageView
@@ -117,7 +119,8 @@
 
         <!--</FrameLayout>-->
 
-        <ImageButton android:id="@+id/share_fab"
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/share_fab"
         android:stateListAnimator="@anim/fab_state_list_anim"
         android:background="@drawable/add_fab_background"
         android:layout_gravity="bottom|end"
