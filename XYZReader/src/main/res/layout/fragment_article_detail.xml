@@ -2,20 +2,17 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/photo_container"
-    android:fitsSystemWindows="true">
+    android:id="@+id/photo_container">
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:elevation="4dp"
-        android:theme="@style/Theme.AppCompat.Light.DarkActionBar"
-        android:fitsSystemWindows="true">
+        android:theme="@style/Theme.AppCompat.Light.DarkActionBar">
 
         <android.support.design.widget.CollapsingToolbarLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fitsSystemWindows="true"
             app:layout_scrollFlags="scroll|exitUntilCollapsed">
 
             <ImageView
@@ -35,7 +32,7 @@
                 android:layout_marginLeft="@dimen/list_toolbar_side_margin"
                 android:layout_marginRight="@dimen/list_toolbar_side_margin"
                 app:layout_collapseMode="pin"
-                android:fitsSystemWindows="true"
+
                 >
                 <!--pin it to the top-->
 

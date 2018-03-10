@@ -157,11 +157,11 @@ public class ArticleDetailFragment extends Fragment implements
         });
 
         bindViews();
-        updateStatusBar();
+       // updateStatusBar();
         return mRootView;
     }
 
-    private void updateStatusBar() {
+    /*private void updateStatusBar() {
         int color = 0;
         if (mPhotoViewBig!= null && mTopInset != 0 && mScrollY > 0) {
             float f = progress(mScrollY,
@@ -174,7 +174,7 @@ public class ArticleDetailFragment extends Fragment implements
         }
         mStatusBarColorDrawable.setColor(color);
         // mCoordinatorLayout.setInsetBackground(mStatusBarColorDrawable);
-    }
+    }*/
 
     static float progress(float v, float min, float max) {
         return constrain((v - min) / (max - min), 0, 1);
@@ -251,7 +251,7 @@ public class ArticleDetailFragment extends Fragment implements
                                 mPhotoViewBig.setImageBitmap(imageContainer.getBitmap());
                                 mRootView.findViewById(R.id.meta_bar)
                                         .setBackgroundColor(mMutedColor);
-                                updateStatusBar();
+                                //updateStatusBar();
                             }
                         }
 
@@ -311,7 +311,3 @@ public class ArticleDetailFragment extends Fragment implements
                 : mPhotoViewBig.getHeight() - mScrollY;
     }
 }
-
-//todo blank screen when clicked on detail
-//todo picture not fully fitting the entire screen
-//todo fix the collapsing toolbar
