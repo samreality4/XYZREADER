@@ -43,6 +43,8 @@ public class ScrollAwareFABBehavior extends FloatingActionButton.Behavior{
 
         //dyConsumed is the Y axis of pixel consumed when scrolling down
         if(dyConsumed > 0 && child.getVisibility() == View.VISIBLE){
+            //Was having problem child.hide(), but it will we need overide the on hidden to make
+            //the android know that hide() = INVISIBLE
            child.hide(new FloatingActionButton.OnVisibilityChangedListener() {
                @Override
                public void onHidden(FloatingActionButton fab) {
