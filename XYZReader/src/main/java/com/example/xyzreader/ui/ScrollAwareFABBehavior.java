@@ -1,6 +1,7 @@
 package com.example.xyzreader.ui;
 
 import android.content.Context;
+import android.support.annotation.NonNull;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.view.ViewCompat;
@@ -13,16 +14,21 @@ import android.view.View;
 
 public class ScrollAwareFABBehavior extends FloatingActionButton.Behavior{
 
+
+
+
+
     public ScrollAwareFABBehavior(Context context, AttributeSet attributeSet){
         super();
     }
+
 
     @Override
     public boolean onStartNestedScroll(CoordinatorLayout coordinatorLayout,
                                        FloatingActionButton child, View directTargetChild,
                                        View target, int axes, int type){
-        return axes == ViewCompat.SCROLL_AXIS_VERTICAL ||
-                super.onStartNestedScroll(coordinatorLayout, child, directTargetChild, target,
+        return axes == ViewCompat.SCROLL_AXIS_VERTICAL||
+               super.onStartNestedScroll(coordinatorLayout, child, directTargetChild, target,
                         axes, type);
     }
 
@@ -33,10 +39,20 @@ public class ScrollAwareFABBehavior extends FloatingActionButton.Behavior{
         super.onNestedScroll(coordinatorLayout, child, target, dxConsumed, dyConsumed,
                 dxUnconsumed, dyUnconsumed, type);
 
+
+
+        //dyConsumed is the Y axis of pixel consumed when scrolling down
         if(dyConsumed > 0 && child.getVisibility() == View.VISIBLE){
-            child.hide();
-        } else if (dyConsumed < 0 && child.getVisibility() != View.VISIBLE){
-            child.show();
+           child.hide(new FloatingActionButton.OnVisibilityChangedListener() {
+               @Override
+               public void onHidden(FloatingActionButton fab) {
+                   super.onShown(fab);
+                   fab.setVisibility(View.INVISIBLE);
+               }
+           });
+
+        } else if (dyConsumed < 0 && child.getVisibility() == View.INVISIBLE){
+           child.show();
         }
 
     }

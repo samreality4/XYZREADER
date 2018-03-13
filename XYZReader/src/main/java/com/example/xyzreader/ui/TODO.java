@@ -15,6 +15,9 @@ public class TODO {
     //todo 05 fix the unknown space between collasping bar and title bar
     //remove android:fitsSystemWindows="true"
     //todo 06 fix the up button
+    //ok
     //todo 07 landscape view arrow not aligning
+    //re adjust the fitsSystemwindows to the Main Detail View that holds the fragment
+    //todo 08 the FAB doesn't show up when it is hide()
 
 }
