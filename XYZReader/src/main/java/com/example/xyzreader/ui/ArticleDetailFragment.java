@@ -282,4 +282,6 @@ public class ArticleDetailFragment extends Fragment implements
                 ? (int) mPhotoContainerView.getTranslationY() + mPhotoViewBig.getHeight() - mScrollY
                 : mPhotoViewBig.getHeight() - mScrollY;
     }
+
+
 }
