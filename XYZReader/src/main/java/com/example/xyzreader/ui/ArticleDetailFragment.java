@@ -18,6 +18,7 @@ import java.util.GregorianCalendar;
 
 import android.os.Bundle;
 import android.support.design.widget.CoordinatorLayout;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.ShareCompat;
 import android.support.v4.widget.NestedScrollView;
 import android.support.v7.graphics.Palette;
@@ -221,6 +222,7 @@ public class ArticleDetailFragment extends Fragment implements
                                 mPhotoViewBig.setImageBitmap(imageContainer.getBitmap());
                                 mRootView.findViewById(R.id.meta_bar)
                                         .setBackgroundColor(mMutedColor);
+
                             }
                         }
 
@@ -260,6 +262,7 @@ public class ArticleDetailFragment extends Fragment implements
         }
 
             bindViews();
+
         }
 
 

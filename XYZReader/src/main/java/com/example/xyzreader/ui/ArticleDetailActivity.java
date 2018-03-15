@@ -8,6 +8,7 @@ import android.database.Cursor;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Build;
 import android.os.Bundle;
+import android.support.design.widget.Snackbar;
 import android.support.v13.app.FragmentStatePagerAdapter;
 import android.support.v4.app.NavUtils;
 import android.support.v4.view.ViewPager;
@@ -36,6 +37,7 @@ public class ArticleDetailActivity extends AppCompatActivity
     private int mTopInset;
 
     private ViewPager mPager;
+    private View mView;
     private MyPagerAdapter mPagerAdapter;
     private View mUpButtonContainer;
     private View mUpButton;
@@ -48,8 +50,8 @@ public class ArticleDetailActivity extends AppCompatActivity
                     View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN |
                             View.SYSTEM_UI_FLAG_LAYOUT_STABLE);
         }
-
         setContentView(R.layout.activity_article_detail);
+        mView = findViewById(R.id.main_detail_coordinator);
 
         getLoaderManager().initLoader(0, null, this);
 
@@ -138,6 +140,8 @@ public class ArticleDetailActivity extends AppCompatActivity
                 mCursor.moveToNext();
             }
             mStartId = 0;
+            Snackbar snackbar = Snackbar.make(mView, "loading is done",Snackbar.LENGTH_SHORT);
+            snackbar.show();
         }
     }
 
