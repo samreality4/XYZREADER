@@ -10,17 +10,9 @@ With the app, you can:
 
 ## Screenshots
 
-![screen](src/main/res/drawable/screenone.png)
+![screen](XYZReader/src/main/res/drawable/screenone.png)
 
-![screen](src/main/res/drawable/screentwo.png)
-
-
-## Libraries
-
-
-* [Retrofit](https://github.com/square/retrofit)
-* [Picasso](http://square.github.io/picasso/)
-
+![screen](XYZReader/src/main/res/drawable/screentwo.png)
 
 
 ## License
