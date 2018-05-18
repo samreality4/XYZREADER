@@ -1,9 +1,10 @@
 # XYZREADER
+
 A mock RSS feed reader featuring banner photos and headlines.
 
 ## Features
 
-With the app, you can:
+By using this app, you can:
 * Scroll through articles.
 * Watch how the toolbar collaspes as you scroll through the articles.
 * Swipe right or left to move between articles.
