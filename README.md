@@ -1,6 +1,6 @@
 # XYZREADER
 
-A mock RSS feed reader featuring banner photos and headlines.
+A colorful mock RSS feed reader featuring banner photos and headlines.
 
 ## Features
 
